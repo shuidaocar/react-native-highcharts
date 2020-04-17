@@ -31,19 +31,21 @@ class ChartWeb extends Component {
                     }
                     </style>
                     <head>
-                        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-                        ${this.props.stock ? '<script src="https://code.highcharts.com/stock/highstock.js"></script>'
-                                      : '<script src="https://code.highcharts.com/highcharts.js"></script>'}
-                        ${this.props.more ? '<script src="https://code.highcharts.com/highcharts-more.js"></script>'
-                                      : ''}
-                        ${this.props.guage ? '<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>'
-                                      : ''}
-                        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                    <script src="https://shuidao-static.qn.shuidao.com/rn/app/highcharts/jquery-2.1.4.min.js"></script>
+                    ${this.props.stock ? '<script src="https://shuidao-static.qn.shuidao.com/rn/app/highcharts/highstock.js"></script>'
+                                  : '<script src="https://shuidao-static.qn.shuidao.com/rn/app/highcharts/highcharts.js"></script>'}
+                    ${this.props.more ? '<script src="https://shuidao-static.qn.shuidao.com/rn/app/highcharts/highcharts-more.js"></script>'
+                                  : ''}
+                    ${this.props.guage ? '<script src="https://shuidao-static.qn.shuidao.com/rn/app/highcharts/solid-gauge.js"></script>'
+                                  : ''}
+                    <script src="https://shuidao-static.qn.shuidao.com/rn/app/highcharts/exporting.js"></script>
                         <script>
                         $(function () {
+                          if(${this.props.options ? 'true' : 'false'}) {
                             Highcharts.setOptions(${JSON.stringify(this.props.options)});
+                          }
                             Highcharts.${this.props.stock ? 'stockChart' : 'chart'}('container', `,
-            end:`           );
+                          end:`           );
                         });
                         </script>
                     </head>
